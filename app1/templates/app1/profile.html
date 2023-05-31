@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'app1/styp.css' %}">
+    <title>{{ request.user.username }}</title>
+</head>
+
+<body>
+    <div class="p">
+        <div class="item">
+            <h1>{{ request.user.username }}</h1>
+        </div>
+
+        <div class="item">
+            <h1>{{ request.user.email }}</h1>
+        </div>
+        <hr>
+    </div>
+    <table>
+        <tr class="tbl">
+            <th>
+                Room Name
+            </th>
+            <th>
+                Number Of people
+            </th>
+
+            <th>
+                Check In
+            </th>
+            <th>
+                Check Out
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                PaymentMode
+            </th>
+            <th>
+                Cancel
+            </th>
+
+        </tr>
+        {% for item in order %}
+        <form action="{% url 'cancelOrder' %}" method="post">
+            {% csrf_token %}
+            <tr>
+
+                <th>
+                    {{ item.roomname }}
+                </th>
+                <th>
+                    2
+                </th>
+
+                <th>
+                    {{ item.cin }}
+                </th>
+                <th>
+                    {{ item.cout }}
+                </th>
+                <th>
+                    {{ item.sex }}
+                </th>
+                <th>
+                    {{ item.amount }}
+                </th>
+                <th>
+                    {{ item.mode }}
+                </th>
+                <th>
+                    <button type="submit">Cancel</button>
+                </th>
+                <input type="hidden" name="ids" value="{{ item.id }}">
+            </tr>
+        </form>
+        {% endfor %}
+    </table>
+    <div class="b">
+        <form action="{% url 'logo' %}" method="post">
+            {% csrf_token %}
+            <div class="item1"> <button class="btn" name="logoutuser" type="submit">Logout </button></div>
+        </form>
+
+        <div class="item1"> <a class="btn" href="{% url 'index' %}">Home</a></div>
+    </div>
+
+</body>
+
+</html>

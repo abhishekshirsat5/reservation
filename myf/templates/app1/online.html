@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+<button id="pay">
+  Pay Now
+</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+<script>
+    var options = {
+      key: "rzp_test_HPR933L2nTKRBP",
+      amount: {{ amount }},
+      currency: "INR",
+      name: "{{ request.user }}",
+      description: " Buying {{ product.id }} ",
+      image: "https://example.com/your_logo",
+      order_id: "{{ order_id }}",
+      handler: function (response) {
+        alert(response.razorpay_payment_id);
+      },
+      callback_url:
+        "http://127.0.0.1:8000/pay/",
+      redirect: false,
+      prefill: {
+        name: "Gaurav Kumar",
+        email: "sateeshchinnu@gmail.com",
+        contact: "6364659530",
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on("payment.failed", function (response) {
+      alert("failed");
+      // alert(response.error.code);
+      // alert(response.error.description);
+      // alert(response.error.source);
+      // alert(response.error.step);
+      // alert(response.error.reason);
+      // alert(response.error.metadata.order_id);
+      // alert(response.error.metadata.payment_id);
+    });
+    document.getElementById("pay").onclick = function (e) {
+      rzp1.open();
+      e.preventDefault();
+    };
+  </script>
+
+</body>
+</html>

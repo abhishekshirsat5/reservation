@@ -1,0 +1,75 @@
+
+
+.room{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 10px 150px 0px 150px;
+}
+
+.room .room1{
+    display:flex;
+    flex-direction:row ;
+    justify-content: space-between;
+    border: 2px solid black;
+    margin-top: 5px;
+}
+
+.room1 p input{
+    width :20px;
+    border:none;
+}
+
+.room1 p{
+    margin-left: -2rem;
+}
+
+.container .contents{
+    font-weight: bold;    
+}
+
+.room1 .contant{
+    margin-left: -15rem;
+}
+
+.room1 .contant1 h3{
+    font-size: 1.5rem;
+}
+
+img{
+    width: 16rem;
+}
+
+.btn{
+    display: inline-block; 
+    margin-right: 1rem;
+    background:#ffa500;
+    color:#fff;
+    padding:.3rem 2.5rem;
+    border:.2rem solid #ffa500;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  
+  .btn:hover{
+    background:rgba(255, 165, 0,.2);
+    color:#ffa500;
+  }
+
+  .flex{
+    border: 1px solid red !important;
+    display: flex;
+    flex-direction: row;
+    
+  }
+  .btn1{
+    
+    padding: 8px 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: #b82d49;
+    color: #fff;
+    width: max-content;
+    
+}

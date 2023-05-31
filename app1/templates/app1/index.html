@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hotel reservation</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'app1/style.css' %}">
+
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header>
+
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <a href="#" class="logo"><span>OKAYALI</span></a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#services">services</a>
+            <a href="#gallery">gallery</a>
+            <a href="#facilities">facilities</a>
+            <a href="#location">location</a>
+
+            <a href="#contact">contact us</a>
+        </nav>
+
+        <div class="icons">
+            <form action="{% url 'book' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn">book now</button>
+                <a href="{% url 'auth' %}"> <i class="fas fa-user" id="login-btn"></i></a>
+            </form>
+
+            <!-- <form action="{% url 'auth' %}" method="post">
+                 {% csrf_token %}
+                 
+                </button> -->
+            <!-- </form> -->
+
+        </div>
+
+    </header>
+    <i class="fas fa-times" id="form-close"></i>
+
+
+
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>wel come to</h3>
+            <p>okayali recidency</p>
+        </div>
+
+        <div class="controls" id="search-btn">
+            <span class="vid-btn active" data-src="{% static 'app1/images/n.mp4' %}"></span>
+            <span class="vid-btn" data-src="{% static 'app1/images/d.mp4' %}"></span>
+            <span class="vid-btn" data-src="{% static 'app1/images/s.mp4' %}"></span>
+        </div>
+
+        <div class="video-container">
+            <video src="{% static 'app1/images/n.mp4' %}" id="video-slider" loop autoplay muted></video>
+        </div>
+
+    </section>
+
+    <!-- home section ends -->
+
+
+
+
+
+    <!-- services section starts  -->
+
+    <section class="services" id="services">
+
+        <h1 class="heading">
+            <span>s</span>
+            <span>e</span>
+            <span>r</span>
+            <span>v</span>
+            <span>i</span>
+            <span>c</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="{% static 'app1/icon/r.png' %}" alt="" height="70px">
+                <h3>front desk</h3>
+
+            </div>
+
+            <div class="box">
+                <img src="{% static 'app1/icon/a.png' %}" alt="" height="70px">
+                <h3>airport transfer</h3>
+
+            </div>
+
+            <div class="box">
+                <img src="{% static 'app1/icon/w4.png' %}" alt="" height="70px">
+                <h3>free wi-fi</h3>
+
+            </div>
+
+            <div class="box">
+                <img src="{% static 'app1/icon/air.png' %}" alt="" height="70px">
+                <h3>air conditioning</h3>
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/icon/b.png' %}" alt="" height="80px">
+                <h3>free breakfast</h3>
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/icon/h.png' %}" alt="" height="70px">
+                <h3>daily housekeeping</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- services section ends -->
+
+    <!-- gallery section starts  -->
+
+    <section class="gallery" id="gallery">
+
+        <h1 class="heading">
+            <span>g</span>
+            <span>a</span>
+            <span>l</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+            <span>y</span>
+        </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="{% static 'app1/images/h16.jpg' %}" alt="">
+                <div class="content">
+                    <h3> <br> casual <br>
+                        bedroom</h3>
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/images/h2.jpg' %}" alt="">
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/images/h19.jpg' %}" alt="">
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/images/h18.jpg' %}" alt="">
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/images/h5.jpg' %}" alt="">
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/images/h1.jpg' %}" alt="">
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/images/h7.jpg' %}" alt="">
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/images/h8.jpg' %}" alt="">
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/images/h9.jpg' %}" alt="">
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/images/h17.jpg' %}" alt="">
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/images/h11.jpg' %}" alt="">
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/images/h10.jpg' %}" alt="">
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+    <!-- gallery section ends -->
+    <section class="facilities" id="facilities">
+
+
+        <h1 class="heading">
+            <span>f</span>
+            <span>a</span>
+            <span>c</span>
+            <span>i</span>
+            <span>l</span>
+            <span>i</span>
+            <span>t</span>
+            <span>i</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+        <div class="box-container">
+
+            <div class="box">
+                <img src="{% static 'app1/icon/wifi-signal.png' %}" alt="" height="70px">
+                <h3>free wifi in all rooms!</h3>
+                <div class="content">
+
+                </div>
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/icon/park1.png' %}" alt="" height="70px">
+                <h3>Wi-Fi in Public Areas</h3>
+                <div class="content">
+
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/icon/ser1.png' %}" alt="" height="70px">
+                <h3>Internet Services</h3>
+                <div class="content">
+
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/icon/building.png' %}" alt="" height="70px">
+                <h3>Fitness Center</h3>
+                <div class="content">
+
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/icon/simmo.png' %}" alt="" height="70px">
+                <h3>Swimming Pool</h3>
+                <div class="content">
+
+                </div>
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/icon/joystick.png' %}" alt="" height="70px">
+                <h3>Game Rooms</h3>
+                <div class="content">
+
+                </div>
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/icon/adventurer.png' %}" alt="" height="70px">
+                <h3>Hiking</h3>
+                <div class="content">
+
+                </div>
+
+            </div>
+            <div class="box">
+                <img src="{% static 'app1/icon/gardening.png' %}" alt="" height="70px">
+                <h3>Garden</h3>
+                <div class="content">
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- location section starts  -->
+
+    <section class="location" id="location">
+
+        <h1 class="heading">
+            <span>l</span>
+            <span>o</span>
+            <span>c</span>
+            <span>a</span>
+            <span>t</span>
+            <span>i</span>
+            <span>o</span>
+            <span>n</span>
+        </h1>
+        <center>
+            <div class="box-container1">
+                <div class="loc">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3865.5021554776263!2d74.89126431565838!3d14.340326118149072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbc09ef095808a5%3A0x56254babaf3f15b!2sShirsat%20General%20Store!5e0!3m2!1sen!2sin!4v1655398661545!5m2!1sen!2sin"
+                        width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <br><img src="{% static 'app1/icon/google-maps.png' %}" alt="" height="20"> haladakatta siddapur<br>
+            </div>
+        </center>
+        <!-- contact section starts  -->
+
+        <section class="contact" id="contact">
+
+            <h1 class="heading">
+                <span>c</span>
+                <span>o</span>
+                <span>n</span>
+                <span>t</span>
+                <span>a</span>
+                <span>c</span>
+                <span>t</span>
+            </h1>
+            <center>
+                <div class="box-container2">
+                    <div class="contact">
+                        <a href="tel:+91 6364659530"><img src="{% static 'app1/icon/phone.png' %}" alt=""
+                                height="75"></a>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <a href="mailto:sateeshchinnu96@gmail.com"><img src="{% static 'app1/icon/mail.png' %}" alt=""
+                                height="75"></a>
+                    </div>
+                </div>
+            </center>
+
+            </div>
+
+        </section>
+
+        <!-- contact section ends -->
+
+
+        <!-- footer section  -->
+
+        <section class="footer">
+
+            <div class="box-container">
+
+                <div class="box">
+                    <h3>about us</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quas magni pariatur est
+                        accusantium voluptas enim nemo facilis sit debitis.</p>
+                </div>
+                <div class="box">
+                    <h3>quick links</h3>
+                    <a href="#home">home</a>
+                    <a href="#services">services</a>
+                    <a href="#gallery">gallery</a>
+                    <a href="#facilities">facility</a>
+                    <a href="#location">location</a>
+                    <a href="#contact">contact Us</a>
+                </div>
+                <div class="box">
+                    <h3>follow us</h3>
+                    <a href="#">facebook</a>
+                    <a href="#">instagram</a>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <!-- custom js file link  -->
+        <script src="{% static 'app1/script.js' %}"></script>
+
+</body>
+
+</html>

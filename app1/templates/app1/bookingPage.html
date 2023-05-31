@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book now</title>
+    <link rel="stylesheet" href="{% static 'app1/bookpage.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="contents">
+            <a href="{% url 'index' %}">Home</a><br>
+        </div>
+    </div>
+    <div class="room">
+        {% for item in rooms %}
+        <div class="room1">
+            <div class="img"> <img src="{{ item.image.url }}" alt="image">
+            </div>
+
+            <div class="contant">
+                <h3>{{ item.title }}</h3>
+                <ul>
+                    {% for data in roomList %}
+
+                    {% if data.fkey == item %}
+                    <li>{{ data.list }}</li>
+                    {% endif %}
+                    {% endfor %}
+                    
+            </div>
+
+            <div class="contant1">
+                <p>Available rooms <input value="{{ item.available }}" type="number"> </p>
+                <h3>{{ item.amount }}/<span>day</span>
+                    <h3>
+                        {% if request.user.is_authenticated %}
+                        <form action="{% url 'redirectpage' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="amt" value="{{ item.amount }}">
+                            <button value="{{ item.title }}" name="rmname" class="btn" type="submit">
+
+                                Book Now
+                            </button>
+                        </form>
+                        <!-- <a href="{% url 'confirm' %}" class=btn>Book Now</a> -->
+                        {% else %}
+                        <a href="{% url 'auth' %}" class=btn>Book Now</a>
+                         
+                        {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    </div>
+
+</body>
+
+</html>
